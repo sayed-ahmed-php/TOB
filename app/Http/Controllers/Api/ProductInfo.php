@@ -4,6 +4,7 @@ namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\ApiController;
 use App\Models\Company;
+use App\Models\Department;
 use App\Models\Product;
 use App\Models\ProductImage;
 use App\Models\Token;
@@ -32,15 +33,16 @@ class ProductInfo extends ApiController
                         ->select('id', "name_$lang as name", 'image', 'image', 'price', 'dept_id', "desc_$lang as description")
                         ->first();
 
+        $data['products']->is_like = $data['products']->IsLiked($id);
         $data['products']->has_cart = $data['products']->HasCart($id);
-        $data['products']->images = ProductImage::where('product_id', $product_id)->get();
-        $data['products']->images->map(function ($item)
-        {
-            unset($item->id);
-            unset($item->product_id);
-            unset($item->created_at);
-            unset($item->updated_at);
-        });
+        $data['products']->category =Department::where('id', $data['products']->dept_id)->select("name_$lang as name")->first()->name;
+        $images = ProductImage::where('product_id', $product_id)->select('image')->get();
+
+        $view = null;
+        foreach ($images as $image){
+            $view[] = $image->image;
+        }
+        $data['products']->images = $view;
 
         $data['products']->similar_products = Product::where('dept_id', $data['products']->dept_id)
                                             ->where('id', '!=', $product_id)
@@ -53,6 +55,7 @@ class ProductInfo extends ApiController
             $item->is_like = $item->IsLiked($id);
             $item->has_cart = $item->HasCart($id);
         });
+        unset($data['products']->dept_id);
 
         return $this->successResponse($data);
     }

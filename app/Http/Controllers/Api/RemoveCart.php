@@ -25,7 +25,7 @@ class RemoveCart extends ApiController
         $product_id = $request->product_id;
         $id = $this->id();
 
-        Cart::where('user_id', $id)->where('product_id', $product_id)->where('status', '0')->delete();
+        Cart::where('user_id', $id)->where('product_id', $product_id)->where('status', 1)->delete();
 
         return $this->successResponse(NULL, __('api.RemoveFromCart'));
     }

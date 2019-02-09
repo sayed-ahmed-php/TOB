@@ -14,7 +14,7 @@ class AuthController extends ApiController
     public function login ()
     {
         $rules =  [
-            'phone'  => 'required',
+            'email'  => 'required',
             'password'  => 'required',
         ];
 
@@ -22,7 +22,7 @@ class AuthController extends ApiController
         $errors = $this->formatErrors($validator->errors());
         if($validator->fails()) {return $this->errorResponse($errors);}
 
-        if (Auth::guard('api')->attempt(['phone' => \request('phone'), 'password' => \request('password')]))
+        if (Auth::guard('api')->attempt(['email' => \request('email'), 'password' => \request('password')]))
         {
             $data['user'] = Auth::guard('api')->user();
 
@@ -41,8 +41,7 @@ class AuthController extends ApiController
     {
         $rules =  [
             'f_name'      => 'required',
-            'l_name'      => 'required',
-//            'email'     => 'required|email|unique:users',
+            'email'     => 'required|email|unique:users',
             'phone'     => 'required|unique:users',
             'password'  => 'required|min:6',
             'image'     => 'nullable',

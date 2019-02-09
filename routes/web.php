@@ -64,3 +64,7 @@ Route::namespace('Dashboard')->prefix('{lang}/dashboard')->middleware(['admin:ad
     Route::resource('settings', 'SettingController');
 });
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

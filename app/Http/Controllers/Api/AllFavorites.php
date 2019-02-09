@@ -29,6 +29,11 @@ class AllFavorites extends ApiController
                             ->orderBy("created_at", 'DESC')
                             ->get();
 
+        $data['favorites']->map(function ($item) use($id){
+            $item->is_like = true;
+            $item->has_cart = $item->HasCart($id);
+        });
+
         return $this->successResponse($data);
     }
 }

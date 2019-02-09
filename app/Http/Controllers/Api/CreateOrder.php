@@ -21,6 +21,8 @@ class CreateOrder extends ApiController
     {
         $rules =  [
             'payment' => 'required',
+            'name' => 'required',
+            'phone' => 'required',
             'address' => 'required',
         ];
 
@@ -41,6 +43,8 @@ class CreateOrder extends ApiController
         }
 
         $order = Order::create([
+            'name' => $request->name,
+            'phone' => $request->phone,
             'address' => $request->address,
             'payment' => $request->payment,
             'quantity' => $quantity,

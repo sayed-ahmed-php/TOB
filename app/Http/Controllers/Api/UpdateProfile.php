@@ -19,8 +19,7 @@ class updateProfile extends ApiController
         $auth = User::find($id);
 
         $rules =  [
-            'l_name'            => 'required',
-            'f_name'           => 'required|unique:users,email,'.$id,
+            'f_name'            => 'required',
             'phone'           => 'required|unique:users,phone,'.$id,
             'image'           => 'nullable',
         ];

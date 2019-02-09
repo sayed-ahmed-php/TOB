@@ -24,7 +24,7 @@ class CreateSettingsTable extends Migration
             $table->string('phone')->nullable();
             $table->string('instagram')->nullable();
             $table->string('twitter')->nullable();
-            $table->string('whats')->nullable();
+            $table->string('snap')->nullable();
             $table->integer('delivery')->default(0);
             $table->rememberToken();
             $table->timestamps();

@@ -9,8 +9,8 @@ class ApiLocale
 {
     public function handle($request, Closure $next)
     {
-        if (isset($request->lang)) {
-            App::setLocale($request->lang);
+        if (request()->header('lang')) {
+            App::setLocale(request()->header('lang'));
         } else {
             App::setLocale('ar');
         }

@@ -26,4 +26,5 @@ return[
     "PasswordInvalid" => "Incorrect Password",
     "ProfileUpdated" => "Profile updated Successfully.",
     "Complaint" => "Thanks for your message.",
+    "ForgetPasswordMail" => "Please, check your mail.",
 ];

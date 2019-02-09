@@ -3,9 +3,10 @@
             $resource['header'] => '#',
         ];
     $tableCols = [
-         __('dashboard.Name'),
+         __('dashboard.Name_ar'),
+         __('dashboard.Name_en'),
          __('dashboard.Order'),
-         __('dashboard.Image'),
+         //__('dashboard.Image'),
        ];
 @endphp
 @extends('dashboard.layouts.app')
@@ -51,16 +52,17 @@
                             @foreach($data as $item)
                                 <tr class="tr-{{ $item->id }}">
                                   <td>{{ $item->name_ar }}</td>
+                                  <td>{{ $item->name_en }}</td>
                                   <td>{{ $item->ordered }}</td>
-                                    <td>
-                                        @if($item->image == NULL)
-                                            <i class="fa fa-fw fa-image"> </i>
-                                        @else
-                                            <a href="#" data-toggle="modal" data-target="#img_modal_{{$item->id}}" title="Photo">
-                                                <i class="fa fa-fw fa-image"> </i>
-                                            </a>
-                                        @endif
-                                    </td>
+                                    {{--<td>--}}
+                                        {{--@if($item->image == NULL)--}}
+                                            {{--<i class="fa fa-fw fa-image"> </i>--}}
+                                        {{--@else--}}
+                                            {{--<a href="#" data-toggle="modal" data-target="#img_modal_{{$item->id}}" title="Photo">--}}
+                                                {{--<i class="fa fa-fw fa-image"> </i>--}}
+                                            {{--</a>--}}
+                                        {{--@endif--}}
+                                    {{--</td>--}}
                                     <td>
 
                                         {{-- <a href="{{ route($resource.'.show', $item->id) }}" title="show"><i class="fa fa-fw fa-eye text-light-blue"></i></a> --}}

@@ -37,7 +37,7 @@ class Product extends Model
 
     public function HasCart($id)
     {
-        $item = Cart::where('user_id', $id)->where('product_id', $this->id)->where('status', '0')->first();
+        $item = Cart::where('user_id', $id)->where('product_id', $this->id)->where('status', 1)->first();
         if($item){ return TRUE; }
         return FALSE;
     }

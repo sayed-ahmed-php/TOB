@@ -14,6 +14,7 @@
 Route::namespace('Api')->middleware(['apiLocale'])->group(function ()
 {
     Route::post('login', 'AuthController@login');
+    Route::post('forgetPassword', 'ForgetPassword@index');
     Route::post('register', 'AuthController@register');
     Route::post('logout', 'AuthController@logout');
 

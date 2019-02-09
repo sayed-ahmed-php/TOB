@@ -54,8 +54,8 @@
                         <br>
                         @foreach($data as $item)
                             <tr class="tr-{{ $item->id }}">
-                              <td>{{ $item->User['f_name'].' '.$item->User['l_name'] }}</td>
-                                <td>{{ $item->User['phone'] }}</td>
+                              <td>{{ $item->name }}</td>
+                                <td>{{ $item->phone }}</td>
                                 <td>{{ $item->address }}</td>
                                 <td>{{ $item->quantity }}</td>
                                 <td>{{ $item->price }}</td>

@@ -2,7 +2,7 @@
 
 return [
 
-    'APP_Name'            => 'Electronics',
+    'APP_Name'            => 'TOB',
     #SIDE MENU
     "DASHBOARD"           => "DASHBOARD",
     "ADMINS"              => "ADMINS",
@@ -91,6 +91,7 @@ return [
     "Price"                 => "Price",
     "Dis_Price"                 => "Discount Price",
     "Facebook"              => "Facebook",
+    "Snap"              => "SnapChat",
     "Address"            => "Address",
     "Address_en"            => "Address (en)",
     "Address_ar"            => "Address (ar)",
