@@ -21,6 +21,7 @@ class updateProfile extends ApiController
         $rules =  [
             'f_name'            => 'required',
             'phone'           => 'required|unique:users,phone,'.$id,
+            'email'           => 'required|unique:users,email,'.$id,
             'image'           => 'nullable',
         ];
 
