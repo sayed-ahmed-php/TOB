@@ -57,10 +57,10 @@
 
                                         {{-- <a href="{{ route($resource.'.show', $item->id) }}" title="show"><i class="fa fa-fw fa-eye text-light-blue"></i></a> --}}
                                         <a href="{{ route($resource['route'].'.edit', [App::getLocale(), $item->id]) }}" title="edit"><i class="fa fa-fw fa-edit text-yellow"></i></a>
-                                        <a href="#" data-toggle="modal" data-target="#danger_{{$item->id}}" title="Delete"><i class="fa fa-fw fa-trash text-red"></i></a>
+                                        @if($item->id != 1)<a href="#" data-toggle="modal" data-target="#danger_{{$item->id}}" title="Delete"><i class="fa fa-fw fa-trash text-red"></i></a>@endif
 
                                     </td>
-                                    <td><input type="checkbox" class="sub_chk" name="checked[]" value="{{$item->id}}"></td>
+                                    <td>@if($item->id != 1)<input type="checkbox" class="sub_chk" name="checked[]" value="{{$item->id}}">@endif</td>
                                 </tr>
                                 @include('dashboard.components.dangerModal', ['user_name' => $item->name, 'id' => $item->id, 'resource' => $resource['route']])
                                 @include('dashboard.components.imageModal', ['id' => $item->id,'img' => $item->image])

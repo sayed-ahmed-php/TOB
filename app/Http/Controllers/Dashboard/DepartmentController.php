@@ -63,6 +63,7 @@ class DepartmentController extends Controller
             flashy()->error($validator->errors()->all()[0]);
             return back();
         }
+        $request['image'] = 'no_image';
         Department::create($request->all());
 
         flashy(__('dashboard.created'));
